@@ -5,7 +5,7 @@ class Client{
         this.startDate = new Date();
         this.durationDays = durationDays;
         this.claimStep = 'Submitted';
-        this.claimSteps = ['Submitted', 'Verified','Approved','Paid';]
+        this.claimSteps = ['Submitted', 'Verified','Approved','Paid'];
     }
 
     advanceStep(){
@@ -29,7 +29,7 @@ class ClientManager{
         this.clients = [];
     }
 
-    addClient(){
+    addClient(name, policyType, durationDays){
         const client = new Client(name, policyType, durationDays);
         this.clients.push(client);
     }
@@ -42,7 +42,7 @@ class ClientManager{
         return this.clients.filter(c => c.policyType === policyType);
     }
 
-    findName(name){
+    findClient(name){
         return this.clients.find(c => c.name.toLowerCase() === name.toLowerCase());
     }
 
